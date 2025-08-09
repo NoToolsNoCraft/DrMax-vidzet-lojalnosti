@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aksa Klub Loyalty Panel</title>
+    <!-- STICKY BUTTON & SLIDE-IN PANEL -->
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  header {
+    background: linear-gradient(90deg, #009846, #3BAF3D);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  section h2 {
+    color: #009846;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  section p {
+    margin-bottom: 20px;
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .benefit-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .benefit-box h3 {
+    color: #3BAF3D;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .benefit-box p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  ul {
+   font-size: 0.95rem;
+    
+  }
+
+  .highlight {
+    background: #e8f7ec;
+    padding: 20px;
+    border-left: 5px solid #3BAF3D;
+    margin-top: 30px;
+    border-radius: 6px;
+  }
+
+
+
+  /* Sticky button */
+  #loyaltyStickyBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #009846;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+  }
+
+  #loyaltyStickyBtn:hover {
+    background-color: #007a38;
+  }
+
+  /* Slide-in panel */
+  #loyaltyPanel {
+    position: fixed;
+    right: -400px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    background: white;
+    box-shadow: -2px 0 8px #007a38;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 9998;
+    border-radius: 8px;
+    max-height: 90%;
+    overflow-y: auto;
+  }
+
+  /* Panel visible */
+  #loyaltyPanel.open {
+    right: 20px;
+  }
+
+  /* Close button */
+  #loyaltyPanelClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #3BAF3D; /* Dr.Max zelena */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .cta-btn:hover {
+    background-color: #319532;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+
+  .cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  }
+
+  /* Mobilna verzija */
+@media (max-width: 768px) {
+  #loyaltyPanel.open {
+    right: 0;
+    
+    width: 90vw;
+    
+  }
+  }
+</style>
+
+<header>
+  <h1>Zašto je naš Loyalty Widget prava prilika za Dr.Max?</h1>
+  <p>Predstavljamo vam inovativno rešenje koje povećava angažovanost posetilaca sajta, 
+  podstiče učlanjivanje u Loyalty program i gradi dugoročne odnose sa kupcima – sve kroz 
+  jednostavno i vizuelno privlačno iskustvo.</p>
+</header>
+
+<section>
+  <h2>Prednosti za korisnike</h2>
+  <div class="benefits">
+    <div class="benefit-box">
+      <h3>📌 Jednostavan pristup</h3>
+      <p>Korisnici mogu u samo jednom kliku da otvore panel sa svim informacijama o Loyalty programu, bez pretraživanja sajta.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>🎯 Fokus na pogodnosti</h3>
+      <p>Panel ističe najvažnije benefite članstva – popuste, specijalne ponude i ekskluzivne pogodnosti, motivišući korisnika da se odmah učlani.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>📱 Potpuno prilagođen mobilnim uređajima</h3>
+      <p>Optimizovan prikaz obezbeđuje besprekorno iskustvo na telefonu, tabletu i računaru, što povećava šanse za interakciju.</p>
+    </div>
+  </div>
+
+  <h2>Prednosti za Dr.Max</h2>
+  <div class="benefits">
+    <div class="benefit-box">
+      <h3>🚀 Veća stopa učlanjivanja</h3>
+      <p>Jasan poziv na akciju i strateško pozicioniranje dugmeta podstiču veći broj prijava u Loyalty program.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>💡 Brza implementacija</h3>
+      <p>Widget se lako integriše na postojeći sajt bez potrebe za velikim tehničkim promenama.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>📊 Mogućnost merenja</h3>
+      <p>Prikupljanje podataka o broju otvaranja panela i klikova na CTA dugme pruža jasne uvide u uspešnost kampanje.</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h2>Zaključak</h2>
+    <p>Ovaj Loyalty Widget kombinuje moderan dizajn, jasnoću poruke i jednostavnost korišćenja, 
+    pružajući korisnicima razlog da odmah reaguju. Za Dr.Max, to znači veću angažovanost, 
+    više učlanjenih članova i jaču lojalnost kupaca.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<footer style="background-color:#009846; color:white; padding:30px 20px; text-align:center; margin-top:40px;">
+  <h2 style="margin-bottom:10px;">💬 Želite ovakav widget na svom sajtu?</h2>
+  <p style="max-width:600px; margin:0 auto 20px;">Kontaktirajte me preko LinkedIna i dogovorićemo prilagođenu verziju ovog widgeta za vaš brend.</p>
+  <a href="https://www.linkedin.com/in/petar-skrbic/" 
+     target="_blank" 
+     style="display:inline-block; background:#ffffff; color:#009846; padding:12px 24px; border-radius:6px; font-weight:bold; text-decoration:none; transition:0.3s;">
+     📎 Povežite se sa mnom na LinkedInu
+  </a>
+  <p style="margin-top:30px; font-size:14px; opacity:0.9;">&copy; 2025 Petar Škrbić. Sva prava zadržana.</p>
+</footer>
+
+<!-- Sticky button -->
+<button id="loyaltyStickyBtn">🎁 Dr.Max Loyalty</button>
+
+<!-- Slide-in panel -->
+<div id="loyaltyPanel">
+  <button id="loyaltyPanelClose">&times;</button>
+  <div style="text-align: center;">
+  <h2>Dr.Max Loyalty kartica</h2>
+  </div>
+
+  <!-- Centered loyalty image -->
+  <div style="text-align:center; margin: 15px 0;">
+    <img src="loyalty.png" alt="Dr.Max Loyalty" style="max-width: 100%; height: 20vh;">
+  </div>
+
+
+  <p>Učlanite se besplatno i ostvarite ekskluzivne popuste i pogodnosti samo za vas!</p>
+  <ul>
+    <li><strong>Svakog dana do –20 %</strong> na svaku kupovinu* (osim proizvoda na akciji)</li>
+    <li><strong>Proizvodi nedelje –40 %</strong> posebne ponude samo za članove</li>
+    <li><strong>Iz livleta—mesečne ponude</strong> sa izborom za očuvanje zdravlja, dermokozmetiku i negu beba</li>
+    <li><strong>Poklon proizvodi</strong> i ekskluzivne akcijske ponude za članove Loyalty programa</li>
+    <li><strong>Stručni saveti naših farmaceuta</strong> za zdravlje i lepotu, smanjenje simptoma terapije i podsetnik za preuzimanje terapije</li>
+  </ul>
+  <small>*Osim proizvoda koji su već na sniženju</small>
+  <br><br>
+  <div style="text-align: center;">
+    <a href="https://www.drmax.rs/dr-max-loyalty-kartica" 
+        target="_blank" 
+        class="cta-btn">
+        Pridruži se odmah – besplatno
+    </a>
+    </div>
+  <p style="font-size:12px; color:#666; margin-top:10px;">
+    Besplatno članstvo! Karticu preuzmite u apoteci ili zatražite online.
+  </p>
+</div>
+
+<script>
+   const btn = document.getElementById('loyaltyStickyBtn');
+  const panel = document.getElementById('loyaltyPanel');
+  const closeBtn = document.getElementById('loyaltyPanelClose');
+
+  btn.addEventListener('click', () => {
+    panel.classList.toggle('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
